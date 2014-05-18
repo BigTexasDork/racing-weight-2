@@ -31,6 +31,8 @@ public class Meal {
 	public void setId(String id) {
 		this.id = id;
 	}
+	
+	//@JsonSerialize(using=JodaDateTimeSerializer.class)
 	public DateTime getDate() {
 		return date;
 	}

@@ -25,6 +25,12 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
+	<!-- 
+	<beans:bean id="jacksonObjectMapper" class="xyz.franklin.ssmvc.util.CustomObjectMapper" />
+	<beans:bean id="jacksonSerializationConfig" class="org.codehaus.jackson.map.SerializationConfig"
+		factory-bean="jacksonObjectMapper" factory-method="getSerializationConfig" >
+	</beans:bean>
+	 -->
 	<context:component-scan base-package="xyz.franklin.ssmvc" />
 
 

@@ -20,7 +20,10 @@ http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 		<constructor-arg name="databaseName" value="ss_mongo" />
 	</bean>
 
+	<!-- 
 	<bean id="initMongoService" class="xyz.franklin.ssmvc.service.InitMongoService" init-method="init" />
+	<bean id="tester" class="xyz.franklin.ssmvc.service.GenericTestBean" init-method="init" />
+	-->
 	
 	<!-- To translate any MongoExceptions thrown in @Repository annotated classes -->
 	<context:annotation-config />

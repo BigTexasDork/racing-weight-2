@@ -40,9 +40,9 @@ public class InitMongoService {
 		john.setRole(1);
 		
 		DateTime d = new DateTime();
-		Meal m1 = new Meal(d.minusDays(7), "Breakfast");
-		Meal m2 = new Meal(d.minusDays(7), "Lunch");
-		Meal m3 = new Meal(d.minusDays(7), "Dinner");
+		Meal m1 = new Meal(d.minusDays(7).withTimeAtStartOfDay(), "Breakfast");
+		Meal m2 = new Meal(d.minusDays(7).withTimeAtStartOfDay(), "Lunch");
+		Meal m3 = new Meal(d.minusDays(7).withTimeAtStartOfDay(), "Dinner");
 		
 		john.setMeals(Arrays.asList(m1, m2, m3));
 		

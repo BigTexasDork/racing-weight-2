@@ -4,30 +4,13 @@ function loadData(user) {
 		$('#tableMeals').find('tbody').remove();
 
 		for (var i=0; i<response.meals.length; i++) {
+			var dt = new Date(response.meals[i].date);
 			var row = $("<tr></tr>");
-			$("<td></td>").text(response.meals[i].date).appendTo(row);
+			$("<td></td>").text(dt.toString("MMM dd")).appendTo(row);
 			$("<td></td>").text(response.meals[i].type).appendTo(row);
 			$('#tableMeals').append(row[0].outerHTML);
 		}
 		$('#tableMeals').data('model', response);
-		/*
- 		for (var i=0; i<response.users.length; i++) {
-			var row = '<tr>';
-			row += '<td><input type="radio" name="index" id="index" value="'+i+'"></td>';
-			row += '<td>' + response.users[i].username + '</td>';
-			row += '<td>' + response.users[i].firstName + '</td>';
-			row += '<td>' + response.users[i].lastName + '</td>';
-			row += '<td>' + getRole(response.users[i].role.role) + '</td>';
-			row += '</tr>';
-	 		$('#tableUsers').append(row);
- 		}
- 		
- 		$('#tableUsers').data('model', response.users);
-		toggleForms('hide', 'User');
-		toggleForms('hide', 'Meal');
-		
-		$( "#tableUsers tbody" ).on( "click", "input:radio[name=index]", loadMeals);
-*/
  	});
 }
 
