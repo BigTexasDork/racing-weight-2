@@ -89,4 +89,7 @@ public class User {
 		this.meals = meals;
 	}
 
+	public void addMeal(Meal m) {
+		this.meals.add(m);
+	}
 }

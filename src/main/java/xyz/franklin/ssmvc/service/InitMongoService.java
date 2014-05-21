@@ -43,8 +43,14 @@ public class InitMongoService {
 		Meal m1 = new Meal(d.minusDays(7).withTimeAtStartOfDay(), "Breakfast");
 		Meal m2 = new Meal(d.minusDays(7).withTimeAtStartOfDay(), "Lunch");
 		Meal m3 = new Meal(d.minusDays(7).withTimeAtStartOfDay(), "Dinner");
+		Meal m4 = new Meal(d.minusDays(5).withTimeAtStartOfDay(), "Breakfast");
+		Meal m5 = new Meal(d.minusDays(5).withTimeAtStartOfDay(), "Lunch");
+		Meal m6 = new Meal(d.minusDays(5).withTimeAtStartOfDay(), "Dinner");
+		Meal m7 = new Meal(d.minusDays(3).withTimeAtStartOfDay(), "Breakfast");
+		Meal m8 = new Meal(d.minusDays(3).withTimeAtStartOfDay(), "Lunch");
+		Meal m9 = new Meal(d.minusDays(3).withTimeAtStartOfDay(), "Dinner");
 		
-		john.setMeals(Arrays.asList(m1, m2, m3));
+		john.setMeals(Arrays.asList(m1, m2, m3, m4, m5 ,m6, m7, m8, m9));
 		
 		User jane = new User();
 		jane.setUsername("jane");

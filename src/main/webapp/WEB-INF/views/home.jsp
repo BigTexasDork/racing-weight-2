@@ -16,7 +16,9 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<!-- src='<c:url value="/resources/js/admin.js"/>' -->
     <link rel="stylesheet" href='<c:url value="/resources/css/normalize.css"/>'>
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" href='<c:url value="/resources/css/main.css"/>'>
+    <link rel="stylesheet" href='<c:url value="/resources/css/home.css"/>'>
     <script src='<c:url value="/resources/js/modernizr-2.6.2.min.js"/>'></script>
     <script src='<c:url value="/resources/js/home.js"/>'></script>
     <script src='<c:url value="/resources/js/date.js"/>'></script>
@@ -26,17 +28,12 @@
 	</script>
 </head>
 <body>
-<h1>
-	Hello world!  
-</h1>
+	<h1 id='banner'>Meals</h1>
+	<hr/>
 
-<P>  The time on the server is ${serverTime}. </P>
-<P>
-<sec:authorize access="isAuthenticated()">
-	Username: <sec:authentication property="principal.username" />
-	Role: <sec:authentication property="principal.authorities"/>
-</sec:authorize>
-</P>
+	<p>
+		Date: <input type="text" id="datepicker"> <a id="clearLink">clear</a>
+	</p>
 
 	<table id='tableMeals'>
 		<caption></caption>
@@ -51,10 +48,15 @@
 <a href="<c:url value="/j_spring_security_logout"/>">Logout</a>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
 			// init
 			loadData(user);
+			$( "#datepicker" ).datepicker( {
+				onClose: datePickerOnClose
+			});
+			setEvents();
 		});
 	</script>
 </body>
