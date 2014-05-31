@@ -41,4 +41,17 @@ public class UserController {
 			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
 		return u;
 	}
+	
+	@RequestMapping(value = "/", method = RequestMethod.POST)
+	public @ResponseBody User create(@RequestBody User newUser,
+			HttpServletResponse resp) {
+
+		User user = userService.create(newUser);
+		if (null == user)
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		else
+			resp.setStatus(HttpServletResponse.SC_CREATED);
+
+		return user;
+	}
 }

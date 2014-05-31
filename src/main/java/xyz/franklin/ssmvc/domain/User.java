@@ -2,7 +2,9 @@ package xyz.franklin.ssmvc.domain;
 
 import java.util.List;
 
-import org.springframework.data.mongodb.core.mapping.*;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class User {
@@ -43,10 +45,12 @@ public class User {
 		this.username = username;
 	}
 
+	@JsonIgnore
 	public String getPassword() {
 		return password;
 	}
 
+	@JsonProperty
 	public void setPassword(String password) {
 		this.password = password;
 	}
