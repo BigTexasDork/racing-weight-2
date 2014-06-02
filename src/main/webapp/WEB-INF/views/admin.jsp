@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Admiin</title>
+	<title>Admin</title>
     <meta name="description" content="admin page">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
