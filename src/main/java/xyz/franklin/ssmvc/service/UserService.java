@@ -45,5 +45,6 @@ public class UserService {
 		user.setLastName(newUser.getLastName());
 		user.setPassword(encoder.encode((CharSequence)newUser.getPassword()));
 		
-		return userRepository.save(user);	}
+		return userRepository.save(user);
+	}
 }
