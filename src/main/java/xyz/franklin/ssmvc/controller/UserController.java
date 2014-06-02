@@ -30,8 +30,11 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/{username}", method=RequestMethod.GET)
-	public @ResponseBody User get(@PathVariable String username) {
-		return userService.read(username);
+	public @ResponseBody User get(@PathVariable String username, HttpServletResponse resp) {
+		User u = userService.read(username);
+		if (null == u)
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		return u;
 	}
 
 	@RequestMapping(value="/{username}/meal", method=RequestMethod.POST)
@@ -46,7 +49,13 @@ public class UserController {
 	public @ResponseBody User create(@RequestBody User newUser,
 			HttpServletResponse resp) {
 
-		User user = userService.create(newUser);
+		User user = userService.read(newUser.getUsername());
+		if (null != user) {
+			resp.setStatus(HttpServletResponse.SC_CONFLICT);
+			return null;
+		}
+		
+		user = userService.create(newUser);
 		if (null == user)
 			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
 		else
