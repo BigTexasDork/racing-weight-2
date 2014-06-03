@@ -4,11 +4,14 @@ import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document
 public class User {
 
+	@Id
+	private String id;
 	private String username;
 	private String password;
 	private String firstName;
@@ -19,6 +22,14 @@ public class User {
 	private List<Meal> meals;
 
 	public User() {
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public int getRole() {

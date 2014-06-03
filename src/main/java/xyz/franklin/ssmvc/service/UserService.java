@@ -47,4 +47,29 @@ public class UserService {
 		
 		return userRepository.save(user);
 	}
+
+	public Boolean delete(String username) {
+		User existingUser = userRepository.findByUsername(username);
+		
+		if (existingUser == null) {
+			return false;
+		}
+		
+		userRepository.delete(existingUser);
+		return true;
+	}
+
+	public User update(User user) {
+		User existingUser = userRepository.findByUsername(user.getUsername());
+		
+		if (existingUser == null) {
+			return null;
+		}
+		
+		existingUser.setFirstName(user.getFirstName());
+		existingUser.setLastName(user.getLastName());
+		existingUser.setRole(user.getRole());
+		
+		return userRepository.save(existingUser);
+	}
 }

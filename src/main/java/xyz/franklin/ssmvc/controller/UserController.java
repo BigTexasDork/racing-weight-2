@@ -63,4 +63,26 @@ public class UserController {
 
 		return user;
 	}
+	
+	@RequestMapping(value="/{username}", method=RequestMethod.DELETE)
+	public @ResponseBody Object delete(@PathVariable("username") String username, HttpServletResponse resp) {
+
+		Boolean deleted = userService.delete(username);
+		resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+		if (!deleted)
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		return null;
+	}
+
+	@RequestMapping(value="/", method=RequestMethod.PUT)
+	public @ResponseBody User update(
+			@RequestBody User updatedUser, 
+			HttpServletResponse resp) {
+		
+		User user = userService.update(updatedUser);
+		if(null == user)
+			resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+		
+		return user;
+	}
 }

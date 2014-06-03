@@ -49,7 +49,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "admin";
+		return "users";
 	}
 	
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
