@@ -40,7 +40,9 @@
 		factory-bean="jacksonObjectMapper" factory-method="getSerializationConfig" >
 	</beans:bean>
 	 -->
-	<context:component-scan base-package="xyz.franklin.ssmvc" />
+	<context:component-scan base-package="xyz.franklin.ssmvc">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 
 
 
