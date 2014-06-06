@@ -4,6 +4,7 @@
 var urlHolder = new Object();
 
 function loadTable() {
+	toggleForms('hide');
 	$.get("/ssmvc/users/", function(response) {
 		
  		$('#tableUsers').find('tbody').remove();
@@ -20,7 +21,7 @@ function loadTable() {
  		}
  		
  		$('#tableUsers').data('model', response);
-		toggleForms('hide'); ;
+
  	});
 }
 

@@ -39,24 +39,28 @@ caption {
 
 form {
 	margin-top: 30px;
-	width: 70%;
 }
 
 legend {
 	font-weight: bold;
 }
 
-form input {
-	float: right;
+fieldset p {
+	margin: 5px;
 }
 
-fieldset input, fieldset select {
+fieldset p input, fieldset p select {
 	margin-left: 10px;	
 	float: none;
 }
 
-fieldset label {
-	float: left;
-	width: 80px;
-	text-align: right;
+#newform label.error {
+	color: red;
+	font-size: 60%;
+	width: 200px;
+}
+
+fieldset p label {
+	width: 120px;
+	display: inline-block;
 }

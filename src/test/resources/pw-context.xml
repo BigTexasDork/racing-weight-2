@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:component-scan base-package="xyz.franklin.ssmvc.service">
+	</context:component-scan>
+
+	<bean id="lenRule" class="edu.vt.middleware.password.LengthRule"
+		p:minimumLength="5" />
+
+	<bean id="passwordValidator" class="edu.vt.middleware.password.PasswordValidator">
+		<constructor-arg>
+			<list>
+				<ref bean="lenRule" />
+				<ref bean="wsRule" />
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="wsRule" class="edu.vt.middleware.password.WhitespaceRule" />
+
+</beans>

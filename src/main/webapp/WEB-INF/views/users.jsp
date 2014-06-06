@@ -37,19 +37,33 @@
 		<input type='button' value='Reload' id='reloadBtn' />
 	</div>
 	
-	<div id='newForm'>
-		<form>
+	<div>
+		<form id='newForm'>
   			<fieldset>
 				<legend>Create New Record</legend>
-				<label for='newUsername'>Username</label><input type='text' id='newUsername'/><br/>
-				<label for='newPassword'>Password</label><input type='password' id='newPassword'/><br/>
-				<label for='newFirstName'>First Name</label><input type='text' id='newFirstName'/><br/>
-				<label for='newLastName'>Last Name</label><input type='text' id='newLastName'/><br/>
-				<label for='newRole'>Role</label>
+				<p>
+					<label for='newUsername'>Username</label>
+					<input type='text' id='newUsername' name="name" minlength="5" type="text" required/>
+				</p>
+				<p>
+					<label for='newPassword'>Password</label>
+					<input type='password' id='newPassword'/>
+				</p>
+				<p>
+					<label for='newFirstName'>First Name</label>
+					<input type='text' id='newFirstName'/>
+				</p>
+				<p>
+					<label for='newLastName'>Last Name</label>
+					<input type='text' id='newLastName'/>
+				</p>
+				<p>
+					<label for='newRole'>Role</label>
 					<select id='newRole'>
 						<option value='1'>Admin</option>
 						<option value='2' selected='selected'>Regular</option>
 					</select>
+				</p>
   			</fieldset>
 			<input type='button' value='Close' id='closeNewForm' />
 			<input type='submit' value='Submit'/>
@@ -77,9 +91,18 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	<script type='text/javascript' src='<c:url value="/resources/js/custom.js"/>'></script>
+	<script type='text/javascript' src='<c:url value="/resources/js/lib/jquery.validate.js"/>'></script>
 	<script type='text/javascript'>
+	
+		$.validator.setDefaults({
+			debug: true
+		});
+		
 		$(function() {
+			toggleForms('hide');
 			loadTable();
+			
+			$('#newForm').validate();
 			
 			$('#newBtn').click(function() { 
 				toggleForms('new');

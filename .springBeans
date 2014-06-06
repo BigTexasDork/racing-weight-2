@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/pw-context.xml</config>
 		<config>src/main/resources/mongo-context.xml</config>
+		<config>src/test/resources/pw-context.xml</config>
 	</configs>
 	<autoconfigs>
 		<config>src/main/webapp/WEB-INF/spring/root-context.xml</config>
