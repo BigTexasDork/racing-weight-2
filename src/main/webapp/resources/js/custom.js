@@ -5,8 +5,9 @@ var urlHolder = new Object();
 
 function loadTable() {
 	toggleForms('hide');
-	$.get("/ssmvc/users/", function(response) {
-		
+	var request = $.get("/ssmvc/users/"); 
+	request.done( function(response) {
+		console.log(response);
  		$('#tableUsers').find('tbody').remove();
  		
  		for (var i=0; i<response.length; i++) {
@@ -21,8 +22,10 @@ function loadTable() {
  		}
  		
  		$('#tableUsers').data('model', response);
-
- 	});
+	});
+	request.fail( function() {
+		alert('There was an error communicating with the server...');
+	});
 }
 
 function submitNewRecord() {

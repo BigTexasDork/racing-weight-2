@@ -28,13 +28,30 @@
 	</script>
 </head>
 <body>
+	<div id='menu'>
+	</div>
+
 	<h1 id='banner'>Meals</h1>
 	<hr/>
 
 	<p>
-		Date: <input type="text" id="datepicker"> <a id="clearLink">clear</a>
+		Date: <input type="text" id="datepicker"> <a id="clearLink">today</a>
 	</p>
 
+<div id="tabs">
+    <div class="scroller">
+        <ul>
+            <li><a id='t0' href="#tabs-1"></a></li>
+            <li><a id='t1' href="#tabs-1"></a></li>
+            <li><a id='t2' href="#tabs-1"></a></li>
+            <li><a id='t3' href="#tabs-1"></a></li>
+            <li><a id='t4' href="#tabs-1"></a></li>
+            <li><a id='t5' href="#tabs-1"></a></li>
+            <li><a id='t6' href="#tabs-1"></a></li>
+        </ul>
+    </div>
+    <div id="tab-content-holder">
+        <div id="tabs-1">
 	<table id='tableMeals'>
 		<caption></caption>
 		<thead>
@@ -44,6 +61,11 @@
 			</tr>
 		</thead>
 	</table>
+        </div>
+    </div>
+</div>
+
+
 	
 <a href="<c:url value="/j_spring_security_logout"/>">Logout</a>
 
@@ -52,11 +74,9 @@
 	<script type="text/javascript">
 		$(function() {
 			// init
-			loadData(user);
-			$( "#datepicker" ).datepicker( {
-				onClose: datePickerOnClose
-			});
-			setEvents();
+			$.when(loadData(user))
+			.done(setupPage)
+			.fail(setupPageFailed);
 		});
 	</script>
 </body>

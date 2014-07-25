@@ -43,7 +43,7 @@
 				<legend>Create New Record</legend>
 				<p>
 					<label for='newUsername'>Username</label>
-					<input type='text' id='newUsername' name="name" minlength="5" type="text" required/>
+					<input type='text' id='newUsername' name="name" minlength="5" required/>
 				</p>
 				<p>
 					<label for='newPassword'>Password</label>
@@ -70,18 +70,26 @@
 		</form>
 	</div>
 	
-	<div id='editForm'>
-		<form>
+	<div>
+		<form id='editForm'>
   			<fieldset>
 				<legend>Edit Record</legend>
 				<input type='hidden' id='editUsername'/>
-				<label for='editFirstName'>First Name</label><input type='text' id='editFirstName'/><br/>
-				<label for='editLastName'>Last Name</label><input type='text' id='editLastName'/><br/>
-				<label for='editRole'>Role</label>
+				<p>
+					<label for='editFirstName'>First Name</label>
+					<input type='text' id='editFirstName'/>
+				</p>
+				<p>
+					<label for='editLastName'>Last Name</label>
+					<input type='text' id='editLastName'/>
+				</p>
+				<p>
+					<label for='editRole'>Role</label>
 					<select id='editRole'>
 						<option value='1'>Admin</option>
 						<option value='2' selected='selected'>Regular</option>
 					</select>
+				</p>
 			</fieldset>
 			<input type='button' value='Close' id='closeEditForm' />
 			<input type='submit' value='Submit'/>
